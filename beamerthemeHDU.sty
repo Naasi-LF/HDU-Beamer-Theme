@@ -1,0 +1,107 @@
+% 杭州电子科技大学 Beamer 主题
+% 基于 THU-Beamer-Theme (https://github.com/Trinkle23897/THU-Beamer-Theme) 改造
+% 用法：\documentclass[aspectratio=169]{ctexbeamer} + \usetheme{HDU}，XeLaTeX 编译
+
+\mode<presentation>
+
+\RequirePackage[T1,TU]{fontenc}   % calligra 字体需要 T1 编码
+\RequirePackage{calligra}         % 结尾页的花体 Thanks!
+
+% ---------- 中文全部楷体（macOS 用 Kaiti SC 带真粗体，Windows 用 KaiTi） ----------
+\IfFontExistsTF{Kaiti SC}
+  {\setCJKmainfont[BoldFont={Kaiti SC Bold}]{Kaiti SC}
+   \setCJKsansfont[BoldFont={Kaiti SC Bold}]{Kaiti SC}}
+  {\IfFontExistsTF{KaiTi}
+    {\setCJKmainfont[AutoFakeBold]{KaiTi}
+     \setCJKsansfont[AutoFakeBold]{KaiTi}}
+    {}}
+
+\useoutertheme[subsection=false]{smoothbars}
+\useinnertheme{circles}
+
+% 页脚：只保留页码
+\setbeamertemplate{footline}
+  {%
+    \begin{beamercolorbox}[wd=\paperwidth,ht=2.5ex,dp=1.125ex,%
+      leftskip=.3cm,rightskip=.3cm]{title in head/foot}%
+      \hfill
+      {\usebeamerfont{frame number}\usebeamercolor[fg]{frame number}\insertframenumber~/~\inserttotalframenumber}
+    \end{beamercolorbox}%
+  }
+\setbeamertemplate{navigation symbols}{}
+\setlength{\leftmargini}{1.07em}   % 列表圆点与上一行文字左对齐
+
+\definecolor{hdublue}{HTML}{034694}   % 校徽蓝
+\definecolor{hdugray}{HTML}{6B7280}
+\setbeamercolor{footline}{bg=hdublue}
+\setbeamercolor{frametitle}{bg=hdublue,fg=white}
+\setbeamercolor{title}{bg=hdublue}
+\setbeamerfont{frametitle}{size=\large}
+\setbeamertemplate{bibliography item}[text]
+\setbeamertemplate{caption}[numbered]
+
+\setbeamercolor{palette primary}{use=structure,fg=white,bg=structure.fg}
+\setbeamercolor{palette secondary}{use=structure,fg=white,bg=structure.fg!75!black}
+\setbeamercolor{palette tertiary}{use=structure,fg=white,bg=structure.fg!50!black}
+\setbeamercolor{palette quaternary}{fg=white,bg=structure.fg!50!black}
+\setbeamercolor{titlelike}{parent=palette primary}
+
+\setbeamercolor{block title}{bg=hdublue,fg=white}
+\setbeamercolor*{block title example}{use={normal text,example text},bg=white,fg=hdublue}
+\setbeamercolor{fine separation line}{}
+\setbeamercolor{item projected}{fg=white}
+\setbeamercolor{separation line}{}
+\setbeamercolor{structure}{fg=hdublue}
+
+% 封面：左侧标题信息，右侧校徽，底部蓝色色带
+\setbeamercolor{subtitle}{fg=hdugray}
+\setbeamerfont{title}{size=\LARGE,series=\bfseries}
+\setbeamerfont{subtitle}{size=\large,series=\mdseries}
+% 封面日期和底部英文用 Futura
+\IfFontExistsTF{Futura}
+  {\newfontfamily\hdufutura{Futura}
+   \newfontfamily\hdubandfont{Futura}[LetterSpace=10]}
+  {\newcommand{\hdufutura}{\sffamily}
+   \newcommand{\hdubandfont}{\sffamily}}
+% 封面页脚：与页码条同高同色的色带，用法见 main.tex
+\defbeamertemplate{footline}{hdu title}
+  {%
+    \begin{beamercolorbox}[wd=\paperwidth,ht=2.5ex,dp=1.125ex,%
+      leftskip=\beamer@leftmargin,rightskip=.3cm]{title in head/foot}%
+      {\tiny\hdubandfont HANGZHOU DIANZI UNIVERSITY}\hfill
+    \end{beamercolorbox}%
+  }
+\setbeamertemplate{title page}{%
+  \begin{columns}[c]
+    \begin{column}{0.6\textwidth}
+      \raggedright
+      {\setlength{\fboxsep}{10pt}%
+       \colorbox{hdublue}{%
+         {\usebeamerfont{title}\color{white}\inserttitle}%
+         \ifx\insertsubtitle\@empty\else
+           \quad{\usebeamerfont{subtitle}\hdufutura\color{white!80!hdublue}\insertsubtitle}%
+         \fi}\par}
+      \vskip1.2em
+      {\leftskip=10pt   % 与色块内文字左对齐（等于上面的 \fboxsep）
+       {\insertauthor\par}
+       \vskip0.4em
+       {\small\color{hdugray}\insertinstitute\par}}
+    \end{column}
+    \begin{column}{0.3\textwidth}
+      \centering\includegraphics[width=0.9\linewidth]{hdu-logo}
+    \end{column}
+  \end{columns}
+}
+
+\AtBeginSection[]{
+	\begin{frame}
+		\tableofcontents[sectionstyle=show/shaded,subsectionstyle=show/shaded/hide,subsubsectionstyle=show/shaded/hide]
+	\end{frame}
+}
+\AtBeginSubsection[]{
+	\begin{frame}
+		\tableofcontents[sectionstyle=show/shaded,subsectionstyle=show/shaded/hide,subsubsectionstyle=show/shaded/hide]
+	\end{frame}
+}
+
+\mode<all>

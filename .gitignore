@@ -1,0 +1,16 @@
+# macOS
+.DS_Store
+
+# LaTeX 编译中间文件
+*.aux
+*.log
+*.nav
+*.out
+*.snm
+*.toc
+*.vrb
+*.bbl
+*.blg
+*.synctex.gz
+*.fls
+*.fdb_latexmk
