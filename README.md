@@ -25,7 +25,7 @@ xelatex main.tex
 
 `main.tex` 里已经搭好了周报的结构：本周学习进度、本周任务进度、下周计划。
 
-自己新建文档的话，只需要 `beamerthemeHDU.sty` 和 `hdu-logo.pdf` 两个文件：
+自己新建文档的话，只需要 `beamerthemeHDU.sty` 和 `beamerthemeHDU-logo.pdf` 两个文件：
 
 ```latex
 \documentclass[aspectratio=169]{ctexbeamer}
@@ -40,6 +40,17 @@ xelatex main.tex
   \titlepage
 \end{frame}}
 ```
+
+## 安装到 TeX（可选）
+
+把主题放进个人 texmf 目录后，任何文件夹里的文档都能直接 `\usetheme{HDU}`，不用再复制主题文件。macOS 上：
+
+```bash
+mkdir -p ~/Library/texmf/tex/latex/HDU-Beamer
+ln -s "$PWD/beamerthemeHDU.sty" "$PWD/beamerthemeHDU-logo.pdf" ~/Library/texmf/tex/latex/HDU-Beamer/
+```
+
+用的是软链接，之后 `git pull` 更新主题就直接生效。Linux 上把路径换成 `~/texmf/tex/latex/HDU-Beamer`。
 
 ## 字体
 
