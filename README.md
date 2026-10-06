@@ -9,7 +9,7 @@
 ## 和原版的区别
 
 - 配色换成校徽蓝 `#034694`，校徽换成杭电的
-- 16:9，中文全部用楷体
+- 16:10（适配 MacBook 全屏），中文全部用楷体
 - 封面重新排了：左边蓝色标题块，右边校徽，底部一条校名色带
 - 页脚只留页码，去掉了右下角的导航小图标
 - 列表圆点和上一行文字左对齐
@@ -28,7 +28,7 @@ xelatex main.tex
 自己新建文档的话，只需要 `beamerthemeHDU.sty` 和 `beamerthemeHDU-logo.pdf` 两个文件：
 
 ```latex
-\documentclass[aspectratio=169]{ctexbeamer}
+\documentclass[aspectratio=1610]{ctexbeamer}
 \usetheme{HDU}
 ```
 
