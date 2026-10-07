@@ -17,9 +17,13 @@
      \setCJKsansfont[AutoFakeBold]{KaiTi}}
     {}}
 
-% ---------- 公式用 STIX Two（整套衬线、笔画较粗，和楷体搭配） ----------
-% Beamer 默认的数学字体字母是无衬线、数字和括号是衬线，混在一起不统一
-\usefonttheme[onlymath]{serif}
+% ---------- 西文和公式都用 STIX Two（整套衬线、笔画较粗，和楷体搭配） ----------
+% Beamer 默认西文是无衬线体，数学字体字母是无衬线、数字和括号是衬线，混在一起不统一
+\usefonttheme{serif}
+\setmainfont{STIXTwoText}[Extension=.otf, UprightFont=*-Regular, BoldFont=*-Bold,
+                          ItalicFont=*-Italic, BoldItalicFont=*-BoldItalic]
+\setsansfont{STIXTwoText}[Extension=.otf, UprightFont=*-Regular, BoldFont=*-Bold,
+                          ItalicFont=*-Italic, BoldItalicFont=*-BoldItalic]
 \RequirePackage{amsmath}         % unicode-math 要在 amsmath 之后加载
 \RequirePackage{unicode-math}
 \setmathfont{STIXTwoMath-Regular.otf}

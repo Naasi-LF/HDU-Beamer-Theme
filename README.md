@@ -55,7 +55,7 @@ ln -s "$PWD/beamerthemeHDU.sty" "$PWD/beamerthemeHDU-logo.pdf" ~/Library/texmf/t
 ## 字体
 
 - 中文：macOS 用系统自带的 Kaiti SC，Windows 用 KaiTi
-- 公式：STIX Two Math，TeX Live 自带；用了 unicode-math，所以 `amsmath` 已经加载好了
+- 西文和公式：STIX Two（正文 STIX Two Text，公式 STIX Two Math），TeX Live 自带；用了 unicode-math，所以 `amsmath` 已经加载好了
 - 封面上的日期和英文校名用 Futura，没有的话会换成默认无衬线字体
 - 结尾的 Thanks! 用的是 calligra，TeX Live 完整版自带
 
